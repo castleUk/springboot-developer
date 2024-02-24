@@ -23,11 +23,7 @@ spring:
       client:
         registration:
           google:
-            client-id: 1092099345349-nbb9ggek89r4tpuqa32e12tboi32ongg.apps.googleusercontent.com
-            client-secret: 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
             scope:
               - email
               - profile
-jwt:
-  issuer: ppkk34@gmail.com
-  secret_key: study-springboot
+
