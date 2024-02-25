@@ -10,6 +10,7 @@ import me.castleuk.springbootdeveloperblog.dto.UpdateArticleRequest;
 import me.castleuk.springbootdeveloperblog.service.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class BlogApiController {
     //HTTP 메서드가 POST일 때 전달받은 URL와 동일하면 메서드로 매핑
     //@RequestBody 어노테이션은 HTTP를 요청할 때 응답에 해당하는 값을 @RequestBody 애너테이션이 붙은 대상 객체인 AddArticleRequest에 매핑한다.
     @PostMapping("/api/articles")
-    public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request, Principal principal) {
+    public ResponseEntity<Article> addArticle(@RequestBody @Validated AddArticleRequest request, Principal principal) {
 
         Article savedArticle = blogService.save(request, principal.getName());
 
